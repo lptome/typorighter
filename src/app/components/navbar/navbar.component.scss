@@ -1,0 +1,46 @@
+@import "../../../styles.scss";
+
+.navbar {
+  background-color: $blackBackground;
+  border-bottom: 15px solid $accentColor;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  color: $accentColor !important;
+}
+
+.search {
+  display: flex;
+  background-color: $inputBackground;
+  border-radius: 20px;
+  input {
+    width: 100%;
+    padding: 0.4rem 0.75rem;
+    border: none;
+    background-color: transparent;
+    color: white;
+    &::placeholder {
+      color: $lightGray;
+    }
+    &:focus {
+      outline: none !important;
+      border: none;
+    }
+  }
+  .search-button {
+    justify-self: end;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: flex-end;
+    align-items: center;
+    background: $accentColor;
+    border-radius: 20px;
+    padding: 0 0.75rem;
+    a {
+      color: white;
+
+      text-decoration: none;
+    }
+  }
+}
