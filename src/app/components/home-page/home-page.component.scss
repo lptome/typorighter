@@ -1,28 +1,10 @@
-@import "../../../styles.scss";
-
 .home-header {
   margin: 2rem 0 2rem 0;
   text-align: center;
 }
 
-.post-preview {
+.dashboard {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-}
-
-.preview-date {
-  width: 100%;
-  text-align: right;
-  font-style: italic;
-  color: $lightGray;
-}
-
-.preview-image {
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+  flex-wrap: wrap;
 }

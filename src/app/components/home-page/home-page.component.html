@@ -2,20 +2,7 @@
   <h1>Latest Posts</h1>
 </div>
 
-<!-- Article Previews-->
-<div class="container">
-  <div class="post-preview col-4" *ngFor="let post of posts">
-    <h2>{{ post.title }}</h2>
-    <span class="preview-date">{{
-      post.datePublished.toLocaleDateString()
-    }}</span>
-    <div class="preview-image">
-      <img src="{{ post.coverImgSrc }}" />
-      <div class="preview-summary">
-        <p>
-          {{ post.summary }}
-        </p>
-      </div>
-    </div>
-  </div>
+<!-- Dashboard with post previews-->
+<div class="container-fluid">
+  <app-dashboard class="dashboard"></app-dashboard>
 </div>

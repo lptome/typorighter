@@ -9,9 +9,10 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LiteraturePageComponent } from './components/literature-page/literature-page.component';
 import { GamingPageComponent } from './components/gaming-page/gaming-page.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, AboutPageComponent, HomePageComponent, LiteraturePageComponent, GamingPageComponent],
+  declarations: [AppComponent, NavbarComponent, AboutPageComponent, HomePageComponent, LiteraturePageComponent, GamingPageComponent, DashboardComponent],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
