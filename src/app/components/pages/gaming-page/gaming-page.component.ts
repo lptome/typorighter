@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-gaming-page',
   templateUrl: './gaming-page.component.html',
-  styleUrls: ['./gaming-page.component.scss']
+  styleUrls: ['./gaming-page.component.scss'],
 })
 export class GamingPageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

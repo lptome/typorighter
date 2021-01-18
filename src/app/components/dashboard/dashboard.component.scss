@@ -1,5 +1,12 @@
 @import "../../../styles.scss";
 
+//Loading Spinner
+.spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 //Preview Container - centering purposes only.
 .preview-container {
   display: flex;

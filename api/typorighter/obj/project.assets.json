@@ -8828,11 +8828,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luis\\source\\repos\\typorighter\\typorighter\\typorighter.csproj",
+      "projectUniqueName": "C:\\Users\\Luis\\Documents\\Angular\\typorighter\\api\\typorighter\\typorighter.csproj",
       "projectName": "typorighter",
-      "projectPath": "C:\\Users\\Luis\\source\\repos\\typorighter\\typorighter\\typorighter.csproj",
+      "projectPath": "C:\\Users\\Luis\\Documents\\Angular\\typorighter\\api\\typorighter\\typorighter.csproj",
       "packagesPath": "C:\\Users\\Luis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luis\\source\\repos\\typorighter\\typorighter\\obj\\",
+      "outputPath": "C:\\Users\\Luis\\Documents\\Angular\\typorighter\\api\\typorighter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Luis\\AppData\\Roaming\\NuGet\\NuGet.Config",

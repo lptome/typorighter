@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zEfKFfMhgCAnB7CZeNzDjHVYUHZFCoTPG+2NLHTeBpA7BP0gYzeZVxj6gvpxvKp94u8Lz2E0XNJETCM1U/UzDQ==",
+  "dgSpecHash": "Bwd4q2VGjLWRkwXHckBPlFAsLoIbUNa6WhC0Q9DSaa/sfQiWupL66jN2TAhqV0WZOzuLYynaDo5QGOraGd6NBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Luis\\source\\repos\\typorighter\\typorighter\\typorighter.csproj",
+  "projectFilePath": "C:\\Users\\Luis\\Documents\\Angular\\typorighter\\api\\typorighter\\typorighter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luis\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Luis\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

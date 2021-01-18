@@ -11,7 +11,6 @@
 }
 
 .search {
-  display: flex;
   background-color: $inputBackground;
   border-radius: 20px;
   input {
@@ -28,7 +27,7 @@
       border: none;
     }
   }
-  .search-button {
+  .search-btn {
     justify-self: end;
     display: flex;
     font-size: 1.2rem;
@@ -39,7 +38,6 @@
     padding: 0 0.75rem;
     a {
       color: white;
-
       text-decoration: none;
     }
   }

@@ -10,6 +10,9 @@ import { Post } from '../../models/post.model';
 export class DashboardComponent implements OnInit {
   latestPosts: Post[] = [];
 
+  //Show or hide spinner
+  showSpinner: boolean = true;
+
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
@@ -26,6 +29,7 @@ export class DashboardComponent implements OnInit {
           )
         );
       });
+      this.showSpinner = false;
     });
   }
 }
