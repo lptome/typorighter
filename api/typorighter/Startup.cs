@@ -29,6 +29,7 @@ namespace typorighter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Configure CORS to allow resources from our front-end.
             services.AddCors(options =>
             {
                 options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -37,11 +38,14 @@ namespace typorighter
                                       builder.WithOrigins("http://localhost:4200");
                                   });
             });
-
+            
             services.AddControllers();
+
+            services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddDbContext<BlogContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

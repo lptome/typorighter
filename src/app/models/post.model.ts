@@ -13,7 +13,8 @@ export class Post {
     body: string,
     summary: string,
     coverImageSrc: string,
-    datePublished: Date
+    datePublished: Date,
+    tags: string[]
   ) {
     this.id = id;
     this.title = title;
@@ -21,5 +22,6 @@ export class Post {
     this.summary = summary;
     this.coverImageSource = coverImageSrc;
     this.datePublished = datePublished;
+    this.tags = tags;
   }
 }

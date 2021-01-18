@@ -1,4 +1,9 @@
 <div class="container post-full">
+  <app-loading-spinner
+    class="spinner"
+    *ngIf="showSpinner"
+  ></app-loading-spinner>
+
   <!-- Banner -->
   <div class="post-banner">
     <div class="post-circle">

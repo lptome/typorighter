@@ -13,11 +13,11 @@ export class PostService {
 
   //Fetch the latest 8 posts from the API
   getLatestPosts(): Observable<any> {
-    return this.http.get(this.rootUrl + '/latest');
+    return this.http.get(this.rootUrl + '/Latest');
   }
 
   //Fetch Post by ID
-  getPost(id: number): Observable<Post> {
+  getPost(id: number): Observable<any> {
     return this.http.get<Post>(this.rootUrl + `/${id}`);
   }
 }

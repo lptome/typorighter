@@ -17,7 +17,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getLatestPosts().subscribe((data) => {
+      console.log(data);
       data.forEach((post: any) => {
+        let tags: string[] = [];
+
+        if (post.blogPostCategories != null) {
+          post.blogPostCategories.forEach((item: any) => {
+            tags.push(item.category.name);
+          });
+        }
+
         this.latestPosts.push(
           new Post(
             post.id,
@@ -25,11 +34,14 @@ export class DashboardComponent implements OnInit {
             post.body,
             post.summary,
             post.coverImageSource,
-            new Date(post.datePublished)
+            new Date(post.datePublished),
+            tags
           )
         );
       });
       this.showSpinner = false;
     });
+
+    console.log(this.latestPosts);
   }
 }

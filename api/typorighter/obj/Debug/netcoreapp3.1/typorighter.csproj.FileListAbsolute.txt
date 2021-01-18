@@ -293,7 +293,6 @@ C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.csprojAssemblyReference.cache
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.AssemblyInfoInputs.cache
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.AssemblyInfo.cs
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.csproj.CoreCompileInputs.cache
@@ -306,3 +305,4 @@ C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.dll
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.pdb
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.genruntimeconfig.cache
+C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.csprojAssemblyReference.cache

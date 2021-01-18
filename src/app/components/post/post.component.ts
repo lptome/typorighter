@@ -12,6 +12,9 @@ export class PostComponent implements OnInit {
   id: number = NaN;
   post: Post = {} as Post;
 
+  //Loading Spinner
+  showSpinner: boolean = true;
+
   constructor(
     private route: ActivatedRoute,
     private postService: PostService
@@ -22,17 +25,25 @@ export class PostComponent implements OnInit {
     if (id != null) {
       this.id = +id;
       this.postService.getPost(this.id).subscribe((data) => {
-        console.log(data);
+        let tags: string[] = [];
+
+        if (data.blogPostCategories != null) {
+          data.blogPostCategories.forEach((item: any) => {
+            tags.push(item.category.name);
+          });
+        }
+
         this.post = new Post(
           this.id,
           data.title,
           data.body,
           data.summary,
           data.coverImageSource,
-          new Date(data.datePublished)
+          new Date(data.datePublished),
+          tags
         );
       });
-      console.log(this.post);
+      this.showSpinner = false;
     }
   }
 }

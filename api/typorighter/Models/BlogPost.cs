@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace typorighter.Models
         [Required]
         public DateTime DatePublished { get; set; }
         [Required]
-        public IList<Category> Categories { get; set; }
+        public ICollection<BlogPostCategory> BlogPostCategories { get; set; }
 
     }
 }

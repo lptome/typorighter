@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,22 +24,31 @@ namespace typorighter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BlogPost>>> GetBlogPost()
         {
-            return await _context.BlogPost.ToListAsync();
+            //.NET Core lazy loads by default, 'Include' must be used for Data Navigation
+            return await _context.BlogPost.Include(x => x.BlogPostCategories)
+                                          .ThenInclude(y => y.Category)
+                                          .ToListAsync();
         }
 
-        //GET: api/BlogPosts/latest 
-        //Gets the latest 8 posts.
-        [HttpGet("latest")]
+        //GET: api/BlogPosts/Latest
+        //Gets the latest 8 posts, sorting by most recent first
+        [HttpGet("Latest")]
         public async Task<ActionResult<IEnumerable<BlogPost>>> GetRecentBlogPosts()
         {
-            return await _context.BlogPost.FromSqlRaw("SELECT TOP 8 * FROM BlogPost ORDER BY DatePublished DESC").ToListAsync();
+            return await _context.BlogPost.FromSqlRaw("SELECT TOP 8 * FROM BlogPost")
+                                          .Include(x => x.BlogPostCategories) 
+                                          .ThenInclude(y => y.Category)       
+                                          .OrderByDescending(x => x.DatePublished)  //When using Include, must be ordered on server side post-query
+                                          .ToListAsync();
         }
 
         // GET: api/BlogPosts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<BlogPost>> GetBlogPost(int id)
         {
-            var blogPost = await _context.BlogPost.FindAsync(id);
+            var blogPost = await _context.BlogPost.Include(x => x.BlogPostCategories)
+                                                  .ThenInclude(y => y.Category)
+                                                  .SingleOrDefaultAsync(m => m.ID == id);
 
             if (blogPost == null)
             {
