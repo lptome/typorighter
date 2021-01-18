@@ -1,13 +1,23 @@
 @import "../../../styles.scss";
 
-//Card
+//Preview Container - centering purposes only.
+.preview-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 1rem 0;
+}
+
+//Preview Card.
 .post-preview {
   height: 100%;
-  margin: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  background: white;
   box-shadow: 0 0 7px #727272;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 //Post Cover Image
@@ -15,9 +25,10 @@
   position: relative;
   display: flex;
   width: 100%;
-  height: 20rem;
+  height: 15rem;
   img {
     object-fit: cover;
+    object-position: 50% 0;
     width: 100%;
     height: 100%;
   }
@@ -30,43 +41,64 @@
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    text-transform: uppercase;
   }
 }
 
 .preview-content {
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  text-overflow: ellipsis;
   .title {
     font-size: 1.5rem;
   }
-  //Date of Publication
-  .date {
+  .summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  .read-more-btn {
+    margin-left: auto;
+    margin-top: auto;
+    width: fit-content;
     color: white;
+    background: $accentColor;
+    text-transform: uppercase;
     font-weight: bold;
-    text-align: center;
-    line-height: 1;
+  }
+}
+
+//Date of Publication
+.date {
+  position: absolute;
+  right: 0;
+  margin: 1rem 1rem 0 0;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  display: flex;
+  justify-content: flex-end;
+  .date-circle {
     display: flex;
-    justify-content: flex-end;
-    .date-circle {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 4.5rem;
-      height: 4.5rem;
-      background: $accentColor;
-      border-radius: 100%;
-      padding-bottom: 5px;
-      .day {
-        width: 100%;
-        font-size: 1.5rem;
-      }
-      .month {
-        width: 100%;
-        text-transform: uppercase;
-      }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: $accentColor;
+    border-radius: 100%;
+    padding-bottom: 5px;
+    .day {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+    .month {
+      width: 100%;
+      text-transform: uppercase;
     }
   }
 }

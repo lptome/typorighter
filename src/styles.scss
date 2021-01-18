@@ -3,3 +3,15 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 @import "./style/colors";
+
+//Buttons
+.btn-main {
+  background: $accentColor;
+  color: white;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  &:hover {
+    color: white;
+  }
+}
