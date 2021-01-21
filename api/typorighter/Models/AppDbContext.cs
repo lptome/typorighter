@@ -9,6 +9,7 @@ namespace typorighter.Models
 {
     public class AppDbContext : IdentityDbContext
     {
+        //DbSets
         public DbSet<BlogPost> BlogPosts{ get; set; }
         public DbSet<Category> Categories {get; set; }
         public DbSet<BlogPostCategory> BlogPostCategories { get; set; }

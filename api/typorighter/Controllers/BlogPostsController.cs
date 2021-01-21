@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using typorighter.Models;
+using typorighter.ViewModels;
 
 namespace typorighter.Controllers
 {
@@ -33,13 +34,22 @@ namespace typorighter.Controllers
         //GET: api/BlogPosts/Latest
         //Gets the latest 8 posts, sorting by most recent first
         [HttpGet("latest")]
-        public async Task<ActionResult<IEnumerable<BlogPost>>> GetRecentBlogPosts()
+        public async Task<ActionResult<IEnumerable<BlogPostViewModel>>> GetRecentBlogPosts()
         {
-            return await _context.BlogPosts.FromSqlRaw("SELECT TOP 8 * FROM BlogPosts")
-                                          .Include(x => x.BlogPostCategories) 
-                                          .ThenInclude(y => y.Category)       
-                                          .OrderByDescending(x => x.DatePublished)  //When using Include, must be ordered on server side post-query
-                                          .ToListAsync();
+            return await (from a in _context.BlogPosts.FromSqlRaw("SELECT TOP 8 * FROM BlogPosts")
+                                            .Include(x => x.BlogPostCategories)
+                           select new BlogPostViewModel()
+                           {
+                             ID = a.ID,
+                             Title = a.Title,
+                             Summary = a.Summary,
+                             Body = a.Body,
+                             CoverImageSource = a.CoverImageSource,
+                             DatePublished = a.DatePublished,
+                             Categories = a.BlogPostCategories.Select(bpc => bpc.Category).ToList()
+
+                           }).ToListAsync();
+          
         }
 
         // GET: api/BlogPosts/5
