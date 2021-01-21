@@ -6,10 +6,12 @@ import { LiteraturePageComponent } from './components/pages/literature-page/lite
 import { GamingPageComponent } from './components/pages/gaming-page/gaming-page.component';
 import { PostComponent } from './components/post/post.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
   { path: 'literature', component: LiteraturePageComponent },
   { path: 'gaming', component: GamingPageComponent },
   { path: 'about', component: AboutPageComponent },

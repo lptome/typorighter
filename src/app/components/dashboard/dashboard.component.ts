@@ -17,13 +17,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getLatestPosts().subscribe((data) => {
-      console.log(data);
       data.forEach((post: any) => {
         let tags: string[] = [];
 
-        if (post.blogPostCategories != null) {
-          post.blogPostCategories.forEach((item: any) => {
-            tags.push(item.category.name);
+        if (post.categories != null) {
+          post.categories.forEach((cat: any) => {
+            tags.push(cat.name);
           });
         }
 
@@ -41,7 +40,5 @@ export class DashboardComponent implements OnInit {
       });
       this.showSpinner = false;
     });
-
-    console.log(this.latestPosts);
   }
 }

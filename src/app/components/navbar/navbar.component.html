@@ -12,7 +12,12 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <button class="btn btn-main" routerLink="/login">Log In</button>
+    <button *ngIf="!isLoggedIn" class="btn btn-main" routerLink="/login">
+      Log In
+    </button>
+    <button *ngIf="isLoggedIn" (click)="logOut()" class="btn btn-main">
+      Logout
+    </button>
   </div>
   <div class="container-fluid pt-2 pb-2">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

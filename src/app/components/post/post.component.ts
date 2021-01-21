@@ -27,9 +27,9 @@ export class PostComponent implements OnInit {
       this.postService.getPost(this.id).subscribe((data) => {
         let tags: string[] = [];
 
-        if (data.blogPostCategories != null) {
-          data.blogPostCategories.forEach((item: any) => {
-            tags.push(item.category.name);
+        if (data.categories != null) {
+          data.categories.forEach((cat: any) => {
+            tags.push(cat.name);
           });
         }
 

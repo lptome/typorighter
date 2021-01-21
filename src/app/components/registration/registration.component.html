@@ -1,7 +1,7 @@
 <div class="container col-12 col-md-8 col-lg-6 col-xl-4 login-container">
   <h4 class="banner-login">Sign In</h4>
   <div class="login-box col-12">
-    <!--Login Form-->
+    <!--Registration Form-->
     <form
       class="login-form form-control"
       #loginForm="ngForm"
@@ -9,13 +9,15 @@
     >
       <label for="username">Username</label>
       <input type="text" name="username" ngModel required />
+      <label for="email">Email Address</label>
+      <input type="text" name="email" ngModel required />
       <label for="password">Password</label>
       <input type="password" name="password" ngModel required />
+      <label for="passwordConfirm">Confirm Password</label>
+      <input type="password" name="passwordConfirm" ngModel required />
       <div class="login-buttons">
-        <button class="btn btn-main btn-login">Log In</button>
-        <button class="btn btn-main" [routerLink]="['/register']">
-          Create an Account
-        </button>
+        <button class="btn btn-main btn-login">Create Account</button>
+        <button class="btn btn-main">I already have an account</button>
       </div>
     </form>
   </div>
