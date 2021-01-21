@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,19 +7,23 @@ using System.Threading.Tasks;
 
 namespace typorighter.Models
 {
-    public class BlogContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
-        public DbSet<BlogPost> BlogPost { get; set; }
-        public DbSet<Category> Category { get; set; }
-
+        public DbSet<BlogPost> BlogPosts{ get; set; }
+        public DbSet<Category> Categories {get; set; }
         public DbSet<BlogPostCategory> BlogPostCategories { get; set; }
-        public BlogContext(DbContextOptions<BlogContext> options):base(options)
+        public DbSet<BlogReader> Readers { get; set; }
+        public DbSet<BlogWriter> Writers { get; set; }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
             
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+          base.OnModelCreating(modelBuilder);
+
           modelBuilder.Entity<BlogPostCategory>()
               .HasKey(bpc => new { bpc.BlogPostID, bpc.CategoryID });
           modelBuilder.Entity<BlogPostCategory>()

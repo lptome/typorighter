@@ -10,8 +10,8 @@ using typorighter.Models;
 namespace typorighter.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210118160744_ManyToManyFix")]
-    partial class ManyToManyFix
+    [Migration("20210119225334_PluraliseTables")]
+    partial class PluraliseTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace typorighter.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("BlogPost");
+                    b.ToTable("BlogPosts");
                 });
 
             modelBuilder.Entity("typorighter.Models.BlogPostCategory", b =>
@@ -80,7 +80,7 @@ namespace typorighter.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("typorighter.Models.BlogPostCategory", b =>

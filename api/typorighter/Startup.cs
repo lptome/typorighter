@@ -1,16 +1,14 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using typorighter.Models;
 
 namespace typorighter
@@ -35,15 +33,30 @@ namespace typorighter
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:4200");
+                                    builder.WithOrigins("http://localhost:4200")
+                                           .AllowAnyHeader()
+                                           .AllowAnyMethod();
                                   });
             });
-            
-            services.AddControllers();
 
+            //Add Identity
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<AppDbContext>();
+
+            //Configure Password Requirements 
+            services.Configure<IdentityOptions>(options =>
+            {
+              options.Password.RequireDigit = false;
+              options.Password.RequireNonAlphanumeric = false;
+              options.Password.RequireLowercase = false;
+              options.Password.RequireUppercase = false;
+            });
+
+            services.AddControllers();
+            
             services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddDbContext<BlogContext>(options => 
+            services.AddDbContext<AppDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             
         }
@@ -63,6 +76,8 @@ namespace typorighter
             app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

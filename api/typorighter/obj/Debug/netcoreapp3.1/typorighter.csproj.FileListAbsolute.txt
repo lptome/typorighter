@@ -306,3 +306,8 @@ C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.pdb
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.genruntimeconfig.cache
 C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\obj\Debug\netcoreapp3.1\typorighter.csprojAssemblyReference.cache
+C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Luis\Documents\Angular\typorighter\api\typorighter\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

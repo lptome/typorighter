@@ -13,9 +13,9 @@ namespace typorighter.Controllers
     [ApiController]
     public class BlogPostsController : ControllerBase
     {
-        private readonly BlogContext _context;
+        private readonly AppDbContext _context;
 
-        public BlogPostsController(BlogContext context)
+        public BlogPostsController(AppDbContext context)
         {
             _context = context;
         }
@@ -25,17 +25,17 @@ namespace typorighter.Controllers
         public async Task<ActionResult<IEnumerable<BlogPost>>> GetBlogPost()
         {
             //.NET Core lazy loads by default, 'Include' must be used for Data Navigation
-            return await _context.BlogPost.Include(x => x.BlogPostCategories)
+            return await _context.BlogPosts.Include(x => x.BlogPostCategories)
                                           .ThenInclude(y => y.Category)
                                           .ToListAsync();
         }
 
         //GET: api/BlogPosts/Latest
         //Gets the latest 8 posts, sorting by most recent first
-        [HttpGet("Latest")]
+        [HttpGet("latest")]
         public async Task<ActionResult<IEnumerable<BlogPost>>> GetRecentBlogPosts()
         {
-            return await _context.BlogPost.FromSqlRaw("SELECT TOP 8 * FROM BlogPost")
+            return await _context.BlogPosts.FromSqlRaw("SELECT TOP 8 * FROM BlogPosts")
                                           .Include(x => x.BlogPostCategories) 
                                           .ThenInclude(y => y.Category)       
                                           .OrderByDescending(x => x.DatePublished)  //When using Include, must be ordered on server side post-query
@@ -46,7 +46,7 @@ namespace typorighter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BlogPost>> GetBlogPost(int id)
         {
-            var blogPost = await _context.BlogPost.Include(x => x.BlogPostCategories)
+            var blogPost = await _context.BlogPosts.Include(x => x.BlogPostCategories)
                                                   .ThenInclude(y => y.Category)
                                                   .SingleOrDefaultAsync(m => m.ID == id);
 
@@ -96,7 +96,7 @@ namespace typorighter.Controllers
         [HttpPost]
         public async Task<ActionResult<BlogPost>> PostBlogPost(BlogPost blogPost)
         {
-            _context.BlogPost.Add(blogPost);
+            _context.BlogPosts.Add(blogPost);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBlogPost", new { id = blogPost.ID }, blogPost);
@@ -106,13 +106,13 @@ namespace typorighter.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<BlogPost>> DeleteBlogPost(int id)
         {
-            var blogPost = await _context.BlogPost.FindAsync(id);
+            var blogPost = await _context.BlogPosts.FindAsync(id);
             if (blogPost == null)
             {
                 return NotFound();
             }
 
-            _context.BlogPost.Remove(blogPost);
+            _context.BlogPosts.Remove(blogPost);
             await _context.SaveChangesAsync();
 
             return blogPost;
@@ -120,7 +120,7 @@ namespace typorighter.Controllers
 
         private bool BlogPostExists(int id)
         {
-            return _context.BlogPost.Any(e => e.ID == id);
+            return _context.BlogPosts.Any(e => e.ID == id);
         }
     }
 }

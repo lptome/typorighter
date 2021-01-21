@@ -9,7 +9,7 @@ using typorighter.Models;
 
 namespace typorighter.Migrations
 {
-    [DbContext(typeof(BlogContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20210116051410_Initial-Create")]
     partial class InitialCreate
     {

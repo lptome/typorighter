@@ -9,9 +9,13 @@
     <Compile Remove="Migrations\20210118141143_BlogPostCategory.Designer.cs" />
     <Compile Remove="Migrations\20210118160313_ManyToManyFix.cs" />
     <Compile Remove="Migrations\20210118160313_ManyToManyFix.Designer.cs" />
+    <Compile Remove="Migrations\20210119224845_PluraliseContext.cs" />
+    <Compile Remove="Migrations\20210119224845_PluraliseContext.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.10">
