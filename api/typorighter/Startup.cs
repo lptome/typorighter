@@ -43,6 +43,27 @@ namespace typorighter
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddEntityFrameworkStores<AppDbContext>();
 
+            //Add Jwt Authentication
+            services.AddAuthentication(options =>
+            {
+              options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+              options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+              options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+              options.RequireHttpsMetadata = false;
+              options.SaveToken = false;
+              options.TokenValidationParameters = new TokenValidationParameters()
+              {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("ISSUER_SIGNING_KEY"))),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ClockSkew = TimeSpan.Zero,
+              };
+            });
+    
             //Configure Password Requirements 
             services.Configure<IdentityOptions>(options =>
             {
