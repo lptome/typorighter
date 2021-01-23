@@ -18,9 +18,7 @@ namespace typorighter.Models
         public string Summary { get; set; }
         [Required]
         public string CoverImageSource { get; set; }
-        [Required]
         public DateTime DatePublished { get; set; }
-        [Required]
         public ICollection<BlogPostCategory> BlogPostCategories { get; set; }
 
     }

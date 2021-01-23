@@ -36,8 +36,9 @@ namespace typorighter.Controllers
         [HttpGet("latest")]
         public async Task<ActionResult<IEnumerable<BlogPostViewModel>>> GetRecentBlogPosts()
         {
-            return await (from a in _context.BlogPosts.FromSqlRaw("SELECT TOP 8 * FROM BlogPosts")
+            return await (from a in _context.BlogPosts.FromSqlRaw("SELECT TOP 8 * FROM BlogPosts ORDER BY DatePublished DESC")
                                             .Include(x => x.BlogPostCategories)
+                           orderby a.DatePublished descending
                            select new BlogPostViewModel()
                            {
                              ID = a.ID,
@@ -106,6 +107,10 @@ namespace typorighter.Controllers
         [HttpPost]
         public async Task<ActionResult<BlogPost>> PostBlogPost(BlogPost blogPost)
         {
+
+            //Set Publication date to current time
+            blogPost.DatePublished = DateTime.Now;
+
             _context.BlogPosts.Add(blogPost);
             await _context.SaveChangesAsync();
 
